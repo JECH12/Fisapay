@@ -1,0 +1,10 @@
+C:\Users\Esteban\Desktop\test\NewTest\Domain\bin\Debug\Domain.dll
+C:\Users\Esteban\Desktop\test\NewTest\Domain\bin\Debug\Domain.pdb
+C:\Users\Esteban\Desktop\test\NewTest\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Esteban\Desktop\test\NewTest\Domain\obj\Debug\Domain.dll
+C:\Users\Esteban\Desktop\test\NewTest\Domain\obj\Debug\Domain.pdb
+C:\Users\Esteban\source\repos\NewTest\Domain\bin\Debug\Domain.dll
+C:\Users\Esteban\source\repos\NewTest\Domain\bin\Debug\Domain.pdb
+C:\Users\Esteban\source\repos\NewTest\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Esteban\source\repos\NewTest\Domain\obj\Debug\Domain.dll
+C:\Users\Esteban\source\repos\NewTest\Domain\obj\Debug\Domain.pdb
