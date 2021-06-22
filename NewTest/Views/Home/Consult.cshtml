@@ -1,0 +1,88 @@
+﻿<html ng-app="employeeModule" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TEST</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/App.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.min.js" integrity="sha512-mp3VeMpuFKbgxm/XMUU4QQUcJX4AZfV5esgX72JQr7H7zWusV6lLP1S78wZnX2z9dwvywil1VHkHZAqfGOW7Nw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+</head>
+<body ng-controller="employeeController">
+    <div>
+        <h2>Consult</h2>
+        <br />
+        <br />
+        <p>
+            <strong>Search</strong>
+            <input type="text" ng-model="searchTerm"/>
+            <button class="btn btn-primary" ng-click="searchData(searchTerm)"><i class="glyphicon-search"></i></button>
+        </p>
+        <p>
+            <a href="/Home/AddEmployee" class="btn btn-xs btn-success pull-right"><i class="glyphicon-plus-sign"></i>Create New Employee</a>
+        </p>
+        <br />
+        <br />
+        <br />
+        <table class="table">
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Sex
+                </th>
+                <th>
+                    Birthday
+                </th>
+                <th>
+                    Salary
+                </th>
+                <th>
+                    Covid Vaccine
+                </th>
+                <th>Actions</th>
+            </tr>
+
+            <tr ng-repeat="e in employees">
+                <td>
+                    {{e.DNI}}
+                </td>
+                <td>
+                    {{e.Name}}
+                </td>
+                <td>
+                    {{e.Sex}}
+                </td>
+                <td>
+                    {{e.years}}
+                </td>
+                <td>
+                    {{e.Salary | currency:"COP ":0}}
+                </td>
+                <td ng-if="e.Covid_Vaccine == '1'">
+                    Yes
+                </td>
+                <td ng-if="e.Covid_Vaccine == '0'">
+                    No
+                </td>
+                <td>
+                    <a href="/Home/EditEmployee?employeeId={{e.Id}}" class="btn btn-xs btn-warning">
+                        <i class="glyphicon-pencil"></i>
+                    </a>
+
+                    <a href="#" ng-click="deleteData(e.Id)" class="btn btn-xs btn-danger">
+                        <i class="glyphicon-minus"></i>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+        <span><strong>Total Employees:</strong> {{employees.length}}</span>
+        <br />
+        <span><strong>Total Salaries:</strong> {{totalSalary | currency:"COP ":0}}</span>
+    </div>
+</body>
+</html>
+

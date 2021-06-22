@@ -1,0 +1,84 @@
+﻿<html ng-app="employeeModule" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/App.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.min.js" integrity="sha512-mp3VeMpuFKbgxm/XMUU4QQUcJX4AZfV5esgX72JQr7H7zWusV6lLP1S78wZnX2z9dwvywil1VHkHZAqfGOW7Nw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+</head>
+<body>
+    <div ng-controller="addEmployeeController">
+        <div class="container">
+            <div class="row">
+                <form name="insertEmployee" id="insertEmployee">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.DNI.$invalid && insertEmployee.DNI.$dirty}">
+                            <label>DNI</label>
+                            <input type="text" class="form-control" ng-model="register.DNI" ng-pattern="/^[0-9]*$/" name="DNI" id="DNI" required />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.DNI.$touched">
+                                <span ng-show="insertEmployee.DNI.$error.required">DNI is required</span>
+                                <span ng-show="insertEmployee.DNI.$error.pattern">DNI is not Valid</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.Name.$invalid && insertEmployee.Name.$dirty}">
+                            <label>Name</label>
+                            <input type="text" class="form-control" ng-model="register.Name" ng-pattern="/^$|^[A-Za-z]/" name="Name" id="Name" required />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.Name.$touched">
+                                <span ng-show="insertEmployee.Name.$error.required">Name is required</span>
+                                <span ng-show="insertEmployee.Name.$error.pattern">Name is not Valid</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.Sex.$invalid && insertEmployee.Sex.$dirty }">
+                            <label>Sex</label>
+                            <select ng-model="register.Sex" name="Sex" id="Sex" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <br />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.Sex.$touched">
+                                <span ng-show="insertEmployee.Sex.$error.required">Sex is required</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.Birthday.$invalid && insertEmployee.Birthday.$dirty}">
+                            <label>Birthday</label>
+                            <input type="date" class="form-control" ng-model="register.Birthday" name="Birthday" id="Birthday" required />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.Birthday.$touched">
+                                <span ng-show="insertEmployee.Birthday.$error.required">Birthday is required</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.Salary.$invalid && insertEmployee.Salary.$dirty}">
+                            <label>Salary</label>
+                            <input type="text" class="form-control" ng-model="register.Salary" ng-pattern="/^[0-9]*$/" name="Salary" id="Salary" required />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.Salary.$touched">
+                                <span ng-show="insertEmployee.Salary.$error.required">Birthday is required</span>
+                                <span ng-show="insertEmployee.Salary.$error.pattern">DNI is not Valid</span>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':insertEmployee.Covid_Vaccine.$invalid && insertEmployee.Covid_Vaccine.$dirty}">
+                            <label>Covid Vaccine</label>
+                            <select ng-model="register.Covid_Vaccine" name="Covid_Vaccine" id="Covid_Vaccine" required>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <br />
+                            <span class="messages" ng-show="insertEmployee.$submitted || insertEmployee.Covid_Vaccine.$touched">
+                                <span ng-show="insertEmployee.Covid_Vaccine.$error.required">Covid Vaccine is required</span>
+                            </span>
+                        </div>
+                        <span style="color:red;" ng-if="employeeFound"><strong>Employee Already Exist</strong></span>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary" ng-click="saveData()" value="Save" />
+                            <a class="btn btn-default" href="/Home/Consult">Cancel</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
